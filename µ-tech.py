@@ -1,6 +1,6 @@
 import time
 import sys
-import win32console
+import functions
 
 textSpeed=(0.1) #Sleep-Time between letters in Seconds [standard=0.1]
 deniedWait=(1)  #Developer-Setting [standard=1]
@@ -29,21 +29,14 @@ def init():
             print()
     start()
 
-def tell(s):
-    for i in range(len(s)):
-        sys.stdout.write(s[i])
-        time.sleep(textSpeed)
-        sys.stdout.flush()
-    print()
-
 def showHelp():
-    tell("Is this your first time using µ-tech?")
+    functions.tell("Is this your first time using µ-tech?", textSpeed)
     inp=input()
     if "yes" in inp.lower():
-        tell("Ahh I see . . . So we'll start with the basics")
+        functions.tell("Ahh I see . . . So we'll start with the basics", textSpeed)
         basicHelp()
     elif "no" in inp.lower():
-        tell("Oh . . . So why do you need help then?")
+        functions.tell("Oh . . . So why do you need help then?", textSpeed)
         advHelp(input())
     else:
         simpleInput(inp)
@@ -61,30 +54,15 @@ def advHelp(s):
 
 def simpleInput(s):
     if "help" in s.lower(): showHelp()
-    if "exit" in s.lower(): tell("System shutting down... See you soon"), exit()
+    if "exit" in s.lower(): functions.tell("System shutting down... See you soon", textSpeed), exit()
 
 def start():
     print("\nAccess granted!")
     print("Initialising script")
-    loading()
-    tell("Welcome to µ-tech")
-    tell("What can I do for you? If you need help just ask for it")
+    functions.loading()
+    functions.tell("Welcome to µ-tech", textSpeed)
+    functions.tell("What can I do for you? If you need help just ask for it", textSpeed)
     inp=input()
     simpleInput(inp)
-
-def loading(length=20, speed=0.2):
-    j=0
-    for i in range(length):
-        output_handle = win32console.GetStdHandle(win32console.STD_OUTPUT_HANDLE)
-        info = output_handle.GetConsoleScreenBufferInfo()
-        pos = info["CursorPosition"]
-        a="/-\\|"
-        output_handle.WriteConsoleOutputCharacter( a[j], pos )
-        sys.stdout.write(".")
-        time.sleep(speed)
-        sys.stdout.flush()
-        j=j+1
-        if j==4: j=0
-    print("\n")
     
 init()
