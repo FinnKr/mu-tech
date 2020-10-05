@@ -29,7 +29,7 @@ def init():
             print()
     start()
 
-def reden(s):
+def tell(s):
     for i in range(len(s)):
         sys.stdout.write(s[i])
         time.sleep(textSpeed)
@@ -37,13 +37,13 @@ def reden(s):
     print()
 
 def showHelp():
-    reden("Is this your first time using µ-tech?")
+    tell("Is this your first time using µ-tech?")
     inp=input()
     if "yes" in inp.lower():
-        reden("Ahh I see . . . So we'll start with the basics")
+        tell("Ahh I see . . . So we'll start with the basics")
         basicHelp()
     elif "no" in inp.lower():
-        reden("Oh . . . So why do you need help then?")
+        tell("Oh . . . So why do you need help then?")
         advHelp(input())
     else:
         simpleInput(inp)
@@ -61,20 +61,20 @@ def advHelp(s):
 
 def simpleInput(s):
     if "help" in s.lower(): showHelp()
-    if "exit" in s.lower(): reden("System shutting down... See you soon"), exit()
+    if "exit" in s.lower(): tell("System shutting down... See you soon"), exit()
 
 def start():
     print("\nAccess granted!")
     print("Initialising script")
     loading()
-    reden("Welcome to µ-tech")
-    reden("What can I do for you? If you need help just ask for it")
+    tell("Welcome to µ-tech")
+    tell("What can I do for you? If you need help just ask for it")
     inp=input()
     simpleInput(inp)
 
-def loading(lenght=20, speed=0.2):
+def loading(length=20, speed=0.2):
     j=0
-    for i in range(lenght):
+    for i in range(length):
         output_handle = win32console.GetStdHandle(win32console.STD_OUTPUT_HANDLE)
         info = output_handle.GetConsoleScreenBufferInfo()
         pos = info["CursorPosition"]
