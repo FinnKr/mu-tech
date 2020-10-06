@@ -5,7 +5,6 @@ Depending on the input, different paths are taken, which change the course of th
 
 ## Installation
 First of all you need to clone this project by typing ```git clone git@github.com:FinnKr/mu-tech.git``` inside your command-line interface.  
-You need the ```win32console``` package which can be installed with ```pip install pywin32```.  
 To play the game use ```python µ-tech.py``` or ```python3 µ-tech.py``` inside of the project directory.
 
 ## Contribute
