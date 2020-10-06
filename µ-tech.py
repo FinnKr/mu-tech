@@ -2,9 +2,9 @@ import time
 import sys
 import functions
 
-textSpeed=(0.1) #Sleep-Time between letters in Seconds [standard=0.1]
-deniedWait=(1)  #Developer-Setting [standard=1]
-password="general kenobi" #Access password [standard="1234"]
+textSpeed=(0.1) # Sleep-Time between letters in Seconds [standard=0.1]
+deniedWait=(1)  # Developer-Setting [standard=1]
+password="" # Access password [standard="1234"]
 
 def init():
     access=False
