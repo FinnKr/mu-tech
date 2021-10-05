@@ -2,20 +2,20 @@ import time
 import sys
 import functions
 
-textSpeed=(0.1) # Sleep-Time between letters in Seconds [standard=0.1]
-deniedWait=(1)  # Developer-Setting [standard=1]
-password="" # Access password [standard="1234"]
+textSpeed = (0.1) # Sleep-Time between letters in Seconds [standard=0.1]
+deniedWait = (1)  # Developer-Setting [standard=1]
+password = "" # Access password [standard="1234"]
 
 def init():
-    access=False
-    attempts=3
+    access = False
+    attempts = 3
     print("Hello there! Please enter the Password:")
-    while access==False:
-        r1=input("Password:").lower()
-        if r1==password:
-            access=True
-        elif attempts>1:
-            attempts=attempts-1
+    while access == False:
+        r1 = input("Password:").lower()
+        if r1 == password:
+            access = True
+        elif attempts > 1:
+            attempts = attempts-1
             print("\nAccess denied! Try again (" + str(attempts) + " attemps remaining)")
         else:
             print("Access denied! Device locked for 30 Seconds")
@@ -31,15 +31,17 @@ def init():
 
 def showHelp():
     functions.tell("Is this your first time using µ-tech?", textSpeed)
-    inp=input()
+    inp = input()
     if "yes" in inp.lower():
         functions.tell("Ahh I see . . . So we'll start with the basics", textSpeed)
         basicHelp()
     elif "no" in inp.lower():
         functions.tell("Oh . . . So why do you need help then?", textSpeed)
-        advHelp(input())
+        inp = input()
+        advHelp(inp)
     else:
         simpleInput(inp)
+    return
 
 def basicHelp():
     pass
@@ -51,10 +53,12 @@ def advHelp(s):
         pass                #case:2
     else:
         simpleInput(s)      #case:default
+    return
 
 def simpleInput(s):
     if "help" in s.lower(): showHelp()
     if "exit" in s.lower(): functions.tell("System shutting down... See you soon", textSpeed), exit()
+    return
 
 def start():
     print("\nAccess granted!")
@@ -62,7 +66,8 @@ def start():
     functions.loading()
     functions.tell("Welcome to µ-tech", textSpeed)
     functions.tell("What can I do for you? If you need help just ask for it", textSpeed)
-    inp=input()
+    inp = input()
     simpleInput(inp)
-    
+    return
+
 init()
