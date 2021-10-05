@@ -44,7 +44,9 @@ def showHelp():
     return
 
 def basicHelp():
-    pass
+    functions.tell("µ-tech is a text-based RPG, but i guess you knew that already . . .", textSpeed)
+    functions.tell("You can place your orders via the command-line interface... Try it out", textSpeed)
+    return
 
 def advHelp(s):
     if "" in s.lower():
