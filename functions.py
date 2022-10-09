@@ -9,7 +9,7 @@ def tell(s, textSpeed):
     print()
 
 # Create a loading bar
-def loading(length = 50, speed = 7):
+def loading(length = 5, speed = 20):
     """
     Call to create a loading bar with specified width and speed
     @params:
